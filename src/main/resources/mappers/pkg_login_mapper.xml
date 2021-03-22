@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 다른 mapper와 중복되지 않는 네임스페이스 기재 -->
+<mapper namespace="pkg_login">
+
+     <select id = "loginCheck" resultType="loginDto">
+         select * from user_info where user_id=#{user_id} and user_pwd=#{user_pwd}
+     </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

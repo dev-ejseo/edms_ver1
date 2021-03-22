@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 다른 mapper와 중복되지 않는 네임스페이스 기재 -->
+<mapper namespace="pkg_dashboard">
+
+	<select id="In_termChart" resultType="java.util.HashMap">
+		SELECT ent_area, ent_dt,
+		COUNT(ent_area) AS ent_count FROM
+		battery_info
+	</select>
+
+	<!-- 입고 기간별 차트 -->
+	<select id="In_termDateChart" resultType="java.util.HashMap">
+		SELECT ent_dt,
+		COUNT(ent_dt) AS ent_count FROM battery_info
+		WHERE (ent_dt BETWEEN
+		#{beforeMonth} AND #{nowtime}) AND ent_metro =
+		#{area}
+		GROUP BY ent_dt
+	</select>
+
+	<!-- 출고 기간별 차트 -->
+	<select id="Out_termDateChart" resultType="java.util.HashMap">
+		SELECT rel_dt,
+		COUNT(rel_dt) AS rel_count FROM battery_info
+		WHERE (rel_dt BETWEEN
+		#{beforeMonth} AND #{nowtime}) AND rel_metro =
+		#{area}
+		GROUP BY rel_dt
+	</select>
+
+	<!-- 입고 지역별 차트 -->
+	<select id="In_termAreaChart" resultType="java.util.HashMap">
+		SELECT ent_area,
+		COUNT(ent_area) AS ent_count FROM battery_info
+		WHERE (ent_dt BETWEEN
+		#{beforeMonth} AND #{nowtime}) AND ent_metro =
+		#{area}
+		GROUP BY ent_area
+	</select>
+
+	<select id="Out_termChart" resultType="java.util.HashMap">
+		SELECT rel_area, rel_dt,
+		COUNT(rel_area) AS rel_count FROM
+		battery_info
+	</select>
+
+	<!-- 출고 지역별 차트 -->
+	<select id="Out_termAreaChart" resultType="java.util.HashMap">
+		SELECT rel_area, COUNT(rel_area) AS rel_count FROM battery_info
+		WHERE (rel_dt BETWEEN #{beforeMonth} AND #{nowtime}) AND rel_metro =
+		#{area} GROUP BY rel_area
+	</select>
+
+	<select id="bat_pieChart" resultType="java.util.HashMap">
+		SELECT kwh, COUNT(kwh) AS kwh_count FROM battery_info
+		WHERE ent_metro = #{area} GROUP BY kwh
+	</select>
+
+	<select id="area_pieChart" resultType="java.util.HashMap">
+		SELECT rel_area, COUNT(rel_area) AS rel_count FROM battery_info
+		WHERE ent_metro = #{area} GROUP BY rel_area
+	</select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

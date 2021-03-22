@@ -1,0 +1,336 @@
+#history_log .content_width {
+	padding: 1% 2%;
+}
+
+#history_log .search_area {
+	width: 55%;
+    margin: 0 auto 2% auto;
+    height: 8%;
+    background: #c9c9c9;
+    border-radius: 5px;
+}
+
+#history_log .search_area form {
+    width: 100%;
+    display: flex;
+    height: 100%;
+    padding: 1.2em 8em;
+}
+
+#history_log .search_area form label {
+	width: 26%;
+    background: linear-gradient(to bottom, #a7a7a7, #656565);
+    text-align: center;
+    color: #ffffff;
+    border-radius: 5px 0 0 5px;
+    margin: 0;
+    height: 100%;
+    vertical-align: middle;
+    line-height: 200%;
+    z-index: 9;
+}
+
+#history_log .search_area form input {
+    width: 74%;
+    height: 100%;
+    vertical-align: middle;
+    outline: none;
+    border-radius: 0 5px 5px 0;
+    background: white;
+    /* border: 3px solid #77777780; */
+    border: none;
+    border-left: none;
+    padding: 0 10px;
+}
+
+#history_log .search_area form input:focus {
+    border: none;
+    box-shadow: 0px 0px 6px #51e2e2;
+}
+
+#history_log .search_area .search_place {
+    margin: 0 3%;
+}
+
+/* #history_log .search_area .search_local, #history_log .search_area .search_place,
+	#history_log .search_area .search_barcode {
+    width: 28%;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #7777777d;
+    display: flex;
+} */
+
+#history_log .search_area .search_barcode {
+    width: 78%;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #7777777d;
+    display: flex;
+}
+
+#history_log .search_area .submit_button {
+	width: 16%;
+    margin-left: 6%;
+    outline: none;
+    cursor: pointer;
+}
+
+#history_log .search_area .submit_button button {
+	border-radius: 5px;
+    width: 100%;
+    background: #40e0bb;
+    height: 100%;
+    border: none;
+    box-shadow: 2px 2px 4px #7777777d;
+}
+
+#history_log .search_area .submit_button button:hover {
+	background:#6df1d2;
+}
+
+#history_log .search_area .submit_button button:before {
+  content: "\f002";
+  font-family: FontAwesome;
+  font-size: 16px;
+  color: #fff;
+}
+
+#history_log .table_area {
+	width: 100%;
+	margin: 0;
+	position: absolute;
+	display: contents;
+}
+
+#history_log .table_title {
+	width: 100%;
+    display: flex;
+    height: 30px;
+    line-height: 30px;
+}
+
+#history_log .table_title .count{
+	width: 10%;
+}
+
+#history_log .table_title .row_add{
+	width: 90%;
+    text-align: right;
+    font-size: 21px;
+}
+
+#history_log .table_title .row_add .fa:hover {
+	color: #40e0bb;
+}
+
+#history_log .table_body {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	max-height: 593px;
+	margin-bottom: 20px;
+	box-shadow: 3px 3px 4px #e0e0e0;
+	font-size: 12px;
+}
+
+@media only screen (max-width: 1900px) {
+  #history_log .table_body {
+    transform: scale(0.9);
+}
+}
+
+#history_log .table_body table {
+	width: 100%;
+}
+
+
+#history_log #history_log_table thead {
+	position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+#history_log .table_body table thead tr {
+	width: 100%;
+	background: linear-gradient(#ffffff, #dadada, #c3c3c3);
+	height: 32px;
+	/* position: absolute; */
+	/* position: fixed; */
+}
+
+#history_log .table_body table thead tr th {
+	border: 1px solid #d8d8d8;
+	text-align: center;
+	height: 32px;
+	
+}
+
+/* #history_log .table_body table #insert_tbody {
+	margin-top : 32px;
+} */
+
+/* #history_log .table_body table tbody {
+	transform: translateY(32px);
+} */
+
+#history_log .table_body table tbody tr:nth-child(2n) {
+	background-color: #fff;
+}
+
+#history_log .table_body table tbody tr:nth-child(2n+1) {
+	background-color: #e3eef7;
+}
+
+#history_log .table_row {
+	/* display: flex; */
+}
+
+#history_log .table_body table tbody tr.table_row input{
+	width: 100%;
+	border: 1px solid #d8d8d8;
+    padding: 0 3px;
+    background: #f7f7f7;
+    border-radius: 3px;
+    height: 22px;
+}
+
+#history_log .table_body table tbody tr.table_row #check {
+	background: none;
+	height: 13px;
+}
+
+#history_log .table_body table tbody tr td.center_td {
+	text-align: center;
+}
+
+#history_log .table_body table tbody tr td {
+    border: 1px solid #d8d8d8;
+    padding: 5px;
+    height: 28px;
+    overflow: hidden;
+    /* display: inline-block; */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#history_log .table_body table tbody tr td.input_half input {
+	width: 48% !important;
+}
+
+#history_log .table_body table tbody .insert_row {
+	padding: 3px 0 !important;
+	text-align: center;
+}
+
+#history_log .table_body table tbody .insert_row input {
+	width: 100%;
+	border: 0;
+	background: #f7f7f7;
+	border: 1px solid #d8d8d8;
+	text-align: center;
+	padding: 0 3px;
+	border-radius: 3px;
+}
+
+#history_log .table_body table tbody .insert_row input:read-only {
+	background: #c1c1c1;
+}
+
+#history_log .table_footer {
+	width: 100%;
+	float: left;
+	display: flex;
+}
+
+#history_log .paging_button {
+	width: 5%;
+	display: flex;
+}
+
+#history_log .paging_more_data_button, #history_log .paging_more_data_end_button {
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	background: #a5a5a5;
+	margin: 5px 0;
+	text-align: center;
+}
+
+#history_log .paging_more_data_button:hover, #history_log .paging_more_data_end_button:hover {
+	background: #bbbbbb;
+}
+
+#history_log .paging_more_data_end_button {
+	margin: 5px 5px 5px 10px;
+}
+
+#history_log .db_save, #history_log .db_delete, #history_log .excel_save {
+	width: 6%;
+}
+
+#history_log .db_save .db_save_button {
+	width: 100%;
+	height: 25px;
+	line-height: 25px;
+	background: #1774c3;
+	text-align: center;
+	display: inline-block;
+	margin: 5px 0;
+	border-radius: 5px;
+	font-size: 12px;
+	color: #fff;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+#history_log .db_save .db_save_button:hover, #history_log .db_save .db_save_button.selected
+	{
+	background: #2081d4;
+	color: #fff;
+}
+
+#history_log .db_delete .db_delete_button {
+	width: 100%;
+    height: 25px;
+    line-height: 25px;
+    background: #c30606;
+    text-align: center;
+    display: inline-block;
+    margin: 5px 0 5px 10px;
+    border-radius: 5px;
+    font-size: 13px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#history_log .db_delete .db_delete_button:hover, #history_log .db_delete .db_delete_button.selected
+	{
+	background: #dc3232;
+	color: #fff;
+}
+
+#history_log .excel_save {
+	margin: 0 0 0 89%;
+}
+
+#history_log .exel_save_button {
+	width: 100%;
+	height: 25px;
+	line-height: 25px;
+	background: #003a63;
+	text-align: center;
+	display: inline-block;
+	margin: 5px 0;
+	border-radius: 5px;
+	font-size: 13px;
+	color: #fff;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+#history_log .exel_save_button:hover, #history_log .exel_save_button.selected
+	{
+	background: #08558c;
+	color: #fff;
+}

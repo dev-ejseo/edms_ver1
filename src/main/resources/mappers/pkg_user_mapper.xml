@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 다른 mapper와 중복되지 않는 네임스페이스 기재 -->
+<mapper namespace="pkg_user">
+	<select id="get_user" resultType="java.util.HashMap">
+		SELECT *
+		FROM user_info
+		<include refid = "search"></include>
+		ORDER BY seq DESC
+		LIMIT #{start}, #{end}
+		
+		<!-- 
+		SET @rownum:=0;
+		
+		SELECT  @rownum:=@rownum+1 AS testseq, user_tb.*  FROM user_info user_tb
+		<include refid = "search"></include>
+		ORDER BY testseq DESC
+		LIMIT #{start}, #{end}
+		 -->
+		 
+	</select>
+
+	<!-- list count -->
+	<select id="listCount" resultType="int">
+		SELECT count(*)
+		FROM user_info
+		<include refid = "search"></include>
+	</select>
+	
+	<select id="totalCount" resultType="int">
+	    SELECT count(*)
+		FROM user_info
+	</select>
+	
+	<sql id="search">
+	    <choose>
+	         <when test = "search_option == 'all'">
+	             WHERE 1=1
+	         </when>
+	         <otherwise>
+	             WHERE ${search_option} LIKE CONCAT('%', #{search_keyword}, '%')
+	         </otherwise>
+	    </choose>
+	</sql>
+
+	<insert id="insert_user">
+		<if test='m.use_yn == "Y"'>
+		    INSERT INTO user_info(user_id, user_pwd, user_name, company_name, user_admin, user_tel, use_yn)
+		    VALUES (#{m.user_id}, #{m.user_pwd}, #{m.user_name}, #{m.company_name}, #{m.user_admin}, #{m.user_tel}, #{m.use_yn})
+		    ON DUPLICATE KEY UPDATE user_pwd = #{m.user_pwd}, user_name = #{m.user_name}, company_name = #{m.company_name},
+		    user_admin = #{m.user_admin}, user_tel = #{m.user_tel}, use_yn = #{m.use_yn}, 
+		    end_dt = (SELECT case when tb1.use_yn = 'N' then NULL ELSE NULL END FROM (SELECT * FROM user_info WHERE user_id = #{m.user_id}) AS tb1);
+		</if>
+
+		<if test='m.use_yn == "N"'>
+		    INSERT INTO user_info(user_id, user_pwd, user_name, company_name, user_admin, user_tel, use_yn, end_dt)
+		    VALUES (#{m.user_id}, #{m.user_pwd}, #{m.user_name}, #{m.company_name}, #{m.user_admin}, #{m.user_tel}, #{m.use_yn}, NOW())
+		    ON DUPLICATE KEY UPDATE user_pwd = #{m.user_pwd}, user_name = #{m.user_name}, company_name = #{m.company_name},
+		    user_admin = #{m.user_admin}, user_tel = #{m.user_tel}, use_yn = #{m.use_yn},
+		    end_dt = (SELECT tb1.* from(SELECT IFNULL(end_dt, NOW()) FROM user_info WHERE user_id = #{m.user_id}) AS tb1); 
+		</if>
+	</insert>
+	
+	<delete id="delete_user">
+		<foreach item="item" collection="deletelist" index="index" open="" separator=";" close="">
+	        DELETE FROM user_info WHERE user_id = #{item};
+	       </foreach>
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

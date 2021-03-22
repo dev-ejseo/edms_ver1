@@ -1,0 +1,259 @@
+#history .content_width {
+	padding: 1% 2%;
+}
+
+#history .search_area {
+	width: 74%;
+    margin: 1.5% auto 5% auto;
+    height: 8%;
+    background: #c9c9c9;
+    border-radius: 5px;
+    padding: 1.2em 14em;
+    display: flex;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#history .search_area label {
+	width: 20%;
+    background: linear-gradient(to bottom, #a7a7a7, #656565);
+    text-align: center;
+    color: #ffffff;
+    border-radius: 5px 0 0 5px;
+    margin: 0;
+    height: 100%;
+    vertical-align: middle;
+    line-height: 200%;
+    z-index: 9;
+    font-weight: 400 !important;
+}
+
+#history .search_area input {
+    width: 80%;
+    height: 100%;
+    vertical-align: middle;
+    outline: none;
+    border-radius: 0 5px 5px 0;
+    background: white;
+    /* border: 3px solid #77777780; */
+    border: none;
+    border-left: none;
+    padding: 0 10px;
+}
+
+#history .search_area input:focus {
+    border: none;
+    box-shadow: 0px 0px 6px #51e2e2;
+}
+
+#history .search_area .search_place {
+    margin: 0 3%;
+}
+
+#history .search_area .search_local, #history .search_area .search_place,
+	#history .search_area .search_barcode {
+ 	width: 78%;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #7777777d;
+    display: flex;
+}
+
+#history .search_area .submit_button {
+	width: 12%;
+    margin-left: 10%;
+    outline: none;
+    cursor: pointer;
+}
+
+#history .search_area .submit_button button {
+	border-radius: 5px;
+    width: 100%;
+    background: #40e0bb;
+    height: 100%;
+    border: none;
+    box-shadow: 2px 2px 4px #7777777d;
+}
+
+#history .search_area .submit_button button:hover {
+	background:#6df1d2;
+}
+
+#history .search_area .submit_button button:before {
+  content: "\f002";
+  font-family: FontAwesome;
+  font-size: 16px;
+  color: #fff;
+}
+
+#history .insert_area table, #history .content_area table {
+	width: 80%;
+    margin: 0 auto;
+    font-size: 15px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#history .insert_area table tr, #history .content_area table tr {
+	display: flex;
+	border: 1px solid #c1c1c1;
+    background: linear-gradient(to bottom, #ffffff, #fff, #f8f8f8);
+}
+
+/* #history .insert_area table tr:nth-child(2n) {
+	background-color: #fff;
+}
+
+#history .insert_area table tr:nth-child(2n+1) {
+	background-color: #e3eef7;
+} */
+
+#history .insert_area table tr td input:read-only, #history .content_area table tr td input:read-only {
+	background: #c1c1c1 !important;
+}
+
+#history .insert_area table tr td, #history .content_area table tr td{
+	/* padding: 0.3em 1em; */
+	height: 52px;
+}
+
+#history .insert_area table tr td label, #history .content_area table tr td label {
+    width: 15%;
+    margin: 0;
+    background: #0e334c;
+    color: #fff;
+    height: 100%;
+    vertical-align: top;
+    line-height: 52px;
+    text-align: center;
+    font-weight: 400 !important;
+}
+
+#history .insert_area table tr td input, #history .content_area table tr td input {
+    padding: 0 0.5em;
+    height: 26px;
+    line-height: 26px;
+    width: 81%;
+    margin: 13px 2%;
+    border-radius: 4px;
+    border: 1px solid #c1c1c1;
+}
+
+#history .td_seq label {
+	width: 30% !important;
+}
+
+#history .td_seq input {
+	width: 66% !important;
+}
+
+#history .td_seq {
+	width: 13%;
+}
+
+#history .td_V, #history .td_Kwh, #history .td_A, #history .td_car_type {
+	width: 30%;
+}
+
+#history .td_mileage, #history .td_SOC{
+	width: 40%;
+}
+
+#history .td_rel_place, #history .td_rel_dt, #history .td_ent_place, #history .td_ent_dt {
+	width: 25%;
+}
+
+#history .td_bat_kind, #history .td_batt_use, #history .td_user_id {
+	width: 29%;
+}
+
+#history .td_rel_place label, #history .td_rel_dt label, #history .td_ent_place label, #history .td_ent_dt label, 
+#history .td_bat_kind label{
+	width: 20% !important;
+}
+
+#history .td_V label, #history .td_mileage label, 
+#history .td_A label, #history .td_SOC label, #history .td_Kwh label, #history .td_car_type label{
+	width: 25% !important;
+}
+#history .td_rel_place input, #history .td_rel_dt input, #history .td_ent_place input, #history .td_ent_dt input, 
+#history .td_bat_kind input{
+	width: 76% !important;
+}
+
+#history .td_V input, #history .td_A input, #history .td_SOC input, #history .td_Kwh input, #history .td_car_type input, #history .td_mileage input{
+	width: 71% !important;
+}
+
+#history .td_final_dt, #history .td_barcode, #history .td_rel_location, #history .td_ent_location {
+	width: 50%;
+}
+
+#history .db_save, #history .db_update, #history .form_reset {
+	width: 9%;
+}
+
+#history .db_save {
+	margin-left: 39%;
+	margin-right: 4%;
+}
+
+#history .db_update {
+    margin: 0 auto;
+}
+
+#history .form_reset {
+	margin-right: 39%;
+}
+
+#history .td_rel_location, #history .td_ent_location {
+	display: flex;
+}
+
+#history .table_footer {
+	 width: 84%;
+    display: flex;
+       margin: 9% auto 0 auto;
+}
+
+#history .db_save .db_save_button, #history .db_update .db_save_button {
+	width: 100%;
+    height: 28px;
+    line-height: 28px;
+    background: #1774c3;
+    text-align: center;
+    display: inline-block;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 2px 2px 3px #bcbcbc;
+    cursor: pointer;
+}
+
+#history .db_save .db_save_button:hover, #history .db_update .db_save_button:hover, #history .db_save .db_save_button.selected
+	{
+	background: #2081d4;
+	color: #fff;
+}
+
+#history .form_reset .form_reset_button {
+	width: 100%;
+    height: 28px;
+    line-height: 28px;
+    background: #c30606;
+    text-align: center;
+    display: inline-block;
+    margin: 5px 0 5px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 2px 2px 3px #bcbcbc;
+    cursor: pointer;
+}
+
+#history .form_reset .form_reset_button:hover, #history .form_reset .form_reset_button.selected
+	{
+	background: #dc3232;
+	color: #fff;
+}

@@ -1,0 +1,257 @@
+#barcode .content_width {
+	padding: 1% 2%;
+}
+
+#barcode .search_area {
+	width: 80%;
+    margin: 0 auto 2% auto;
+    height: 8%;
+    background: #c9c9c9;
+    border-radius: 5px;
+}
+
+#barcode .search_area form {
+	width: 100%;
+	display: flex;
+	height: 100%;
+	padding: 1.2em 3em;
+}
+
+#barcode .search_area form label {
+	width: 24%;
+    background: linear-gradient(to bottom, #a7a7a7, #656565);
+    text-align: center;
+    color: #ffffff;
+    border-radius: 5px 0 0 5px;
+    margin: 0;
+    height: 100%;
+    vertical-align: middle;
+    line-height: 200%;
+    z-index: 9;
+}
+
+#barcode .search_area form input {
+	width: 76%;
+    height: 100%;
+    vertical-align: middle;
+    outline: none;
+    border-radius: 0 5px 5px 0;
+    background: white;
+    /* border: 3px solid #77777780; */
+    border: none;
+    border-left: none;
+    padding: 0 10px;
+}
+
+#barcode .search_area form input:focus {
+    border: none;
+    box-shadow: 0px 0px 6px #51e2e2;
+}
+
+#barcode .search_area .search_user, #barcode .search_area .search_barcode {
+	width: 41%;
+	height: 100%;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #7777777d;
+    display: flex;
+}
+
+#barcode .search_area .search_barcode {
+	margin-left: 5%;
+}
+
+#barcode .search_area .submit_button {
+	width: 8%;
+    margin-left: 5%;
+    outline: none;
+    cursor: pointer;
+}
+
+#barcode .search_area .submit_button button {
+	border-radius: 5px;
+    width: 100%;
+    background: #40e0bb;
+    height: 100%;
+    border: none;
+    box-shadow: 2px 2px 4px #7777777d;
+}
+
+#barcode .search_area .submit_button button:hover {
+	background:#6df1d2;
+}
+
+
+#barcode .search_area .submit_button button:before {
+  content: "\f002";
+  font-family: FontAwesome;
+  font-size: 16px;
+  color: #fff;
+}
+
+#barcode .table_area {
+	width: 90%;
+	margin: 0 auto;
+	/* display: contents; */
+}
+
+#barcode .table_title {
+	width: 100%;
+    display: flex;
+    height: 30px;
+    line-height: 30px;
+}
+
+#barcode .table_title .count{
+	width: 10%;
+}
+
+#barcode .table_title .row_add{
+	width: 90%;
+    text-align: right;
+    font-size: 21px;
+}
+
+#barcode .table_body {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	max-height: 584px;
+	width: 100%;
+	margin-bottom: 20px;
+	/* display: -webkit-inline-box; */
+	box-shadow: 3px 3px 4px #e0e0e0;
+}
+
+#barcode .table_body table {
+	width: 100%;
+}
+
+#barcode .table_body table #insert_tbody {
+	margin-top : 32px;
+	display: block;
+}
+
+#barcode .table_body table thead {
+	position: fixed;
+    width: 1560px;
+}
+
+#barcode .table_body table thead tr {
+	width: 100%;
+	background: linear-gradient(#ffffff, #dadada, #c3c3c3);
+	height: 32px;
+	/* position: absolute; */
+}
+
+#barcode .table_body table thead tr th {
+    border: 1px solid #d8d8d8;
+    text-align: center;
+    height: 32px;
+}
+
+#barcode .table_body #barcode_table tbody tr {
+	/* display: flex; */
+}
+
+#barcode .table_body table {
+	
+}
+#barcode .table_body table tbody tr:nth-child(2n) {
+	background-color: #fff;
+}
+
+#barcode .table_body table tbody tr:nth-child(2n+1) {
+	background-color: #e3eef7;
+}
+
+#barcode .table_body table tbody tr td.center_td {
+	text-align: center;
+}
+
+#barcode .table_body table tbody tr td {
+	border: 1px solid #d8d8d8;
+    padding: 3px 10px;
+    height: 29px;
+    overflow: hidden;
+    /* display: inline-block; */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#barcode .table_footer {
+	width: 100%;
+	float: left;
+	display: flex;
+}
+
+#barcode .paging_button {
+	width: 5%;
+	display: flex;
+}
+
+#barcode .paging_more_data_button, #barcode .paging_more_data_end_button
+	{
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	background: #a5a5a5;
+	margin: 5px 0;
+	text-align: center;
+}
+
+#barcode .paging_more_data_button:hover, #barcode .paging_more_data_end_button:hover {
+	background: #bbbbbb;
+}
+
+#barcode .paging_more_data_end_button {
+	margin: 5px 5px 5px 10px;
+}
+
+#barcode .table_print, #barcode .excel_save {
+	width: 6%;
+}
+
+#barcode .table_print .print_button {
+	width: 100%;
+	height: 25px;
+	line-height: 25px;
+	background: #40e0bb;
+	text-align: center;
+	display: inline-block;
+	margin: 5px 0;
+	border-radius: 5px;
+	font-size: 13px;
+	color: #fff;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+#barcode .table_print .print_button:hover, #barcode .table_print .print_button.selected
+	{
+	background: #6df1d2;
+	color: #fff;
+}
+
+#barcode .excel_save {
+	margin: 0 0 0 83%;
+}
+
+#barcode .exel_save_button {
+	width: 100%;
+	height: 25px;
+	line-height: 25px;
+	background: #003a63;
+	text-align: center;
+	display: inline-block;
+	margin: 5px 0;
+	border-radius: 5px;
+	font-size: 13px;
+	color: #fff;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+#barcode .exel_save_button:hover, #barcode .exel_save_button.selected
+	{
+	background: #08558c;
+	color: #fff;
+}

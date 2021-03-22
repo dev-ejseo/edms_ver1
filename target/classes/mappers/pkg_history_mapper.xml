@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 다른 mapper와 중복되지 않는 네임스페이스 기재 -->
+<mapper namespace="pkg_history">
+
+	<select id="get_history" resultType="java.util.HashMap">
+		SELECT batt_tb.*, bar_tb.USER_INFO_user_id
+		FROM ((SELECT * FROM battery_info) AS batt_tb
+		LEFT JOIN (SELECT * FROM
+		barcode_info) AS bar_tb
+		ON batt_tb.BARCODE_INFO_Barcode = bar_tb.Barcode)
+		<include refid="search"></include>
+		ORDER BY seq DESC LIMIT 1
+
+		<!-- SET @rownum:=0; SELECT @rownum:=@rownum+1 AS testseq, batt_tb.*, bar_tb.USER_INFO_user_id 
+			FROM ((SELECT * FROM battery_info) AS batt_tb LEFT JOIN (SELECT * FROM barcode_info) 
+			AS bar_tb ON batt_tb.BARCODE_INFO_barcode = bar_tb.Barcode) <include refid 
+			= "search"></include> ORDER BY testseq DESC LIMIT #{start}, #{end} -->
+
+	</select>
+
+	<!-- 최근 바코드 Integer 형태로 가져오기 -->
+	<select id="barcodeNum" resultType="int">
+		SELECT COUNT(*) AS bar_count,
+		case
+		when COUNT(*) = 0
+		then '000000000000'
+		ELSE (SELECT CAST(barcode AS UNSIGNED) FROM barcode_info ORDER BY seq DESC
+		LIMIT 1)
+		END
+		FROM barcode_info
+	</select>
+
+	<sql id="search">
+		<choose>
+			<when test="search_option == 'all'">
+				WHERE 1=1
+			</when>
+			<otherwise>
+				WHERE ${search_option} LIKE CONCAT('%', #{search_keyword}, '%')
+			</otherwise>
+		</choose>
+	</sql>
+
+	<insert id="insert_history" parameterType="string">
+		INSERT INTO
+		barcode_info(Barcode, USER_INFO_user_id) VALUES (#{m.barcode},
+		#{m.user_id})
+		ON DUPLICATE KEY UPDATE USER_INFO_user_id = #{m.user_id};
+
+		INSERT INTO battery_info(BARCODE_INFO_Barcode, barcode_local,
+		bat_kind, batt_use,
+		rel_metro, rel_area, rel_place, rel_dt, ent_metro,
+		ent_area, ent_place, ent_dt, V, A, SOC, Kwh, car_type, mileage)
+		VALUES (#{m.barcode}, #{getfileAbsolute}, #{m.bat_kind}, 'EVESS',
+		#{m.rel_metro}, #{m.rel_area}, #{m.rel_place}, #{m.rel_dt},
+		#{m.ent_metro}, #{m.ent_area}, #{m.ent_place}, #{m.ent_dt}, #{m.V},
+		#{m.A}, #{m.SOC}, #{m.Kwh}, #{m.car_type}, #{m.mileage})
+		ON DUPLICATE KEY UPDATE bat_kind = #{m.bat_kind}, rel_metro =
+		#{m.rel_metro}, rel_area = #{m.rel_area}, rel_place = #{m.rel_place},
+		rel_dt = #{m.rel_dt},
+		ent_metro = #{m.ent_metro}, ent_area = #{m.ent_area}, ent_place =
+		#{m.ent_place}, ent_dt = #{m.ent_dt}, V = #{m.V}, A = #{m.A},
+		SOC = #{m.SOC}, Kwh = #{m.Kwh}, car_type = #{m.car_type}, mileage =
+		#{m.mileage}, final_dt = now();
+	</insert>
+
+	<!-- <delete id="delete_history" parameterType="string"> <foreach item="item" 
+		collection="deletelist" index="index" open="" separator=";" close=""> DELETE 
+		FROM battery_info WHERE BARCODE_INFO_Barcode = #{item}; DELETE FROM barcode_info 
+		WHERE Barcode = #{item} </foreach> </delete> -->
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

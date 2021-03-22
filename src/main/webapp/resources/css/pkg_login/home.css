@@ -1,0 +1,227 @@
+@charset "UTF-8";
+
+#home .main {
+	background: url(/resources/img/background1.jpg) no-repeat center center
+		fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	min-height: 100%;
+	min-width: 1024px;
+	width: 100%;
+	height: auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+#home .title_logo p {
+	font-size: 94px;
+	color: #fff;
+	font-family: -webkit-pictograph;
+	letter-spacing: 3px;
+	margin-bottom: 10px;
+	text-align: left;
+	text-shadow: 4px 5px 5px #444;
+}
+
+#home .title_sub1 p {
+	font-size: 46px;
+	color: #fff;
+	text-align: left;
+	text-shadow: 2px 2px 2px #444;
+	font-family: -webkit-pictograph;
+	margin: 5px 0;
+	letter-spacing: 1px;
+}
+
+#home .title_sub2 p {
+	font-size: 30px;
+	font-weight: 700;
+	color: #ffbb8d;
+	text-shadow: 2px 2px 2px #444;
+	text-align: left;
+	font-family: 'NanumSquare', sans-serif !important;
+	letter-spacing: 1px;
+}
+
+#home .text-center {
+	width: 600px;
+	height: 460px;
+	margin-top: 100px;
+	float: right;
+}
+
+#home .title_area {
+	margin: 8% 0 0 12%;
+}
+
+#home .title_area .title_sub2 img {
+	width: 390px;
+	height: 26px;
+}
+
+#home .sign_area {
+	width: 450px;
+	height: 220px;
+	border-radius: 12px;
+	border: 3px solid rgba(255, 255, 255, .3);
+	background: linear-gradient(to bottom, #eaa57247, #c3a6915c, #6b9cce3b, #2b5b8c5c)
+		!important;
+	background: rgba(255, 255, 255, .16);
+	margin: 10% 0 0 65%;
+	font-family: 'Noto Sans KR', sans-serif;
+	/* 애니메이션 이름 */
+	animation-name: sign_fade_in;
+	-webkit-animation-duration: 3s;
+	animation-duration: 3s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+/* 키프레임 이름 = 애니메이션 이름 */
+@-webkit-keyframes sign_fade_in { 
+	0% {opacity: 0;}
+	100% {opacity:1;}
+}
+
+/* 키프레임 이름 = 애니메이션 이름 */
+@keyframes sign_fade_in { 
+	0% {opacity: 0;}
+	100% {opacity:1;}
+}
+
+#home .form-group.id {
+	width: 100%;
+	float: left;
+	padding: 28px 30px 10px 30px;
+}
+
+#home .form-group.id .control-label, #home .form-group.password .control-label
+	{
+	width: 30%;
+	font-size: 17px;
+	color: #fff;
+	line-height: 34px;
+	margin-bottom: 0;
+	font-family: 'NanumSquare', sans-serif !important;
+}
+
+#home .form-group.id .col-sm-10 {
+	width: 70%;
+}
+
+#home .form-group.id .col-sm-10 .fa-user {
+	width: 14%;
+	background: #e8f0fe52;
+	height: 34px;
+	text-align: center;
+	color: #fff;
+	border-radius: 0 4px 4px 0;
+	line-height: 34px;
+}
+
+#home .form-group.id .form-control {
+	width: 86%;
+	float: left;
+	border-radius: 4px 0 0 4px;
+	background-color: #e8f0fe !important;
+}
+
+#home .form-group.password {
+	width: 100%;
+	float: left;
+	padding: 10px 30px;
+}
+
+#home .form-group.password .col-sm-2 {
+	width: 30%;
+	font-size: 18px;
+	color: #fff;
+}
+
+#home .form-group.password .col-sm-10 {
+	width: 70%;
+}
+
+#home .form-group.password .form-control {
+	width: 86%;
+	float: left;
+	border-radius: 4px 0 0 4px;
+}
+
+#home .form-group.password .col-sm-10 .fa-lock {
+	width: 14%;
+	background: #e8f0fe52;
+	height: 34px;
+	text-align: center;
+	color: #fff;
+	border-radius: 0 4px 4px 0;
+	line-height: 34px;
+}
+
+#home .checkbox {
+	text-align: left;
+	margin-left: 45px;
+	width: 100px;
+	height: 30px;
+	float: left;
+	font-size: 15px;
+	color: #fff;
+}
+
+#home .checkbox .idSaveCheck {
+	text-align: left;
+}
+
+#home .checkbox label {
+	letter-spacing: 1px;
+}
+
+#home .btn-primary.btn-block {
+	width: 25%;
+	float: left;
+	padding: 2px;
+	height: 30px;
+	font-size: 15px;
+	margin-left: 290px;
+	margin-top: -45px;
+	background-color: #003058;
+	border-color: #003058;
+	border-radius: 4px;
+}
+
+#home .btn-primary.btn-block:hover {
+	background-color: #0c3f6b;
+	border-color: #0c3f6b;
+}
+
+#home .idnotnull {
+	width: 300px;
+	margin: 6% 72%;
+	text-align: center;
+	height: 300px;
+	background: rgba(255, 255, 255, .15);
+	padding: 3.7% 2%;
+	border: 5px solid rgba(255, 255, 255, .2);
+	border-radius: 50%;
+}
+
+#home .idnotnull:hover {
+	background: rgba(255, 255, 255, .3);
+	transition: all ease 0.3s 0s;
+}
+
+#home .idnotnull a {
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 34px;
+	font-family: 'NanumSquare', sans-serif !important;
+	font-weight: 100;
+	letter-spacing: 2px;
+}
+
+#home .idnotnull i {
+	margin-top: 35px;
+}

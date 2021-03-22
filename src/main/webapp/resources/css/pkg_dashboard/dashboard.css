@@ -1,0 +1,288 @@
+@charset "UTF-8";
+
+.content_width {
+    display: flex;
+    padding: 2%;
+}
+
+#dashboard .history_battery {
+	width: 37%;
+    height: 100%;
+    margin: 0 2% 0 4%;
+}
+
+#dashboard .period_battery {
+	width: 100%;
+	height: 50%;
+	padding: 2%;
+}
+
+#dashboard .region_battery {
+	width: 100%;
+	height: 50%;
+	padding: 2%;
+}
+
+#dashboard .distribute_battery {
+    width: 25%;
+    height: 100%;
+}
+
+#dashboard .capacity_distribute {
+	width: 100%;
+	height: 50%;
+	padding: 2%;
+}
+
+#dashboard .region_distribute {
+	width: 100%;
+	height: 50%;
+	padding: 2%;
+}
+
+#dashboard .period_battery>div, #dashboard .region_battery>div, #dashboard .capacity_distribute>div, #dashboard .region_distribute>div {
+	background: grey;
+    width: 100%;
+    border-radius: 10px;
+    height: 100%;
+    padding: 0 4%;
+    box-shadow: 3px 3px 4px #bbb;
+}
+
+#dashboard .period_battery_title, #dashboard .region_battery_title, #dashboard .capacity_distribute_title, #dashboard .region_distribute_title {
+	height: 58px;
+    text-align: center;
+    line-height: 58px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #fff;
+}
+
+#dashboard .period_battery_title, #dashboard .region_battery_title {
+	display: flex;
+	font-size: 18px;
+}
+
+#dashboard .period_battery_title .chart_area_name, #dashboard .region_battery_title .chart_area_name {
+	width: 27%;
+    height: 38px;
+    background: #353537;
+    text-shadow: none;
+    line-height: 38px;
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+#dashboard .period_battery_title .chart_name, #dashboard .region_battery_title .chart_name {
+	width: 42%;
+    margin: 0 1%;
+    font-weight: 500;
+}
+
+#dashboard .in_out_btn_area {
+	display: flex;
+    width: 30%;
+}
+
+#dashboard .in_out_btn_area .in_out_btn {
+	background: #525252;
+    width: 100%;
+    height: 34px;
+    border-radius: 5px;
+    text-shadow: none;
+    margin: 12px 0;
+    line-height: 34px;
+    z-index: 99;
+}
+
+#dashboard .in_out_btn.on {
+	background: #40e0bb !important;
+}
+
+#dashboard .in_out_btn_area .battery_input {
+	margin-right: 10px;
+}
+
+#dashboard .in_out_btn_area .in_out_btn:hover{
+	background: #40e0bb;
+}
+
+
+#dashboard .capacity_distribute_title, #dashboard .region_distribute_title {
+	letter-spacing: 1px;
+	font-weight: 500;
+	font-size: 20px;
+}
+
+#dashboard .battery_contnet_add {
+	background: #424242;
+    height: 272px;
+    margin: -398px 0 0 74%;
+    color: #fff;
+    width: 143px;
+    position: relative;
+    font-family: 'Noto Sans KR';
+    padding: 4% 3%;
+    overflow: hidden;
+    line-height: 24px;
+}
+
+
+#dashboard #mapBox {
+	width: 32%;
+}
+
+#dashboard #container {
+    height: 100%; 
+    min-width: 310px; 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+
+#dashboard .loading {
+    margin-top: 10em;
+    text-align: center;
+    color: gray;
+}
+
+#dashboard #container .highcharts-button {
+	display: none;
+}
+
+#dashboard #container .highcharts-legend {
+	display: none;
+}
+
+#dashboard #container .highcharts-credits {	
+	display: none;
+}
+
+#dashboard #container svg.highcharts-root {	
+    overflow: hidden;
+    height: 815px;
+    font-size: 14px !important;
+}
+
+#dashboard #container text.highcharts-title>tspan {
+	font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+}
+
+#dashboard #container text.highcharts-subtitle>tspan {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* -----------------차트----------------- */
+#dashboard .highcharts-container {
+	margin: auto;
+	outline: none;
+}
+
+#dashboard .highcharts-focus-border {
+	display: none !important; 
+}
+
+#dashboard .highcharts-focus-border:hover {
+	display: none !important; 
+}
+
+
+/* 기간별 배터리 입/출고 이력 */
+#period_battery_contnet {
+}
+
+#period_battery_contnet .highcharts-root {
+    /* height: 276px !important;
+    width: 460px !important; */
+}
+
+#period_battery_contnet .highcharts-figure, #period_battery_contnet .highcharts-data-table table {
+    min-width: 500px; 
+    max-width: 500px;
+    margin: 1em auto;
+}
+
+#period_battery_contnet .highcharts-subtitle, #period_battery_contnet .highcharts-credits, 
+#period_battery_contnet .highcharts-axis.highcharts-yaxis {
+	display: none;
+}
+
+/* 지역별 배터리 입/출고 이력 */
+#region_battery_contnet {
+}
+
+#region_battery_contnet .highcharts-root {
+    /* height: 276px !important;
+    width: 460px !important; */
+}
+
+#region_battery_contnet .highcharts-figure, #region_battery_contnet .highcharts-data-table table {
+    min-width: 500px; 
+    max-width: 500px;
+    margin: 1em auto;
+}
+
+#region_battery_contnet .highcharts-subtitle, #region_battery_contnet .highcharts-credits, 
+#region_battery_contnet .highcharts-axis.highcharts-yaxis {
+	display: none;
+}
+
+/* 배터리 용량별 분포 */
+#capacity_distribute_contnet .highcharts-title>tspan {
+	display: none;
+}
+
+#capacity_distribute_contnet .highcharts-root {
+    height: 282px !important;
+}
+
+#capacity_distribute_contnet .highcharts-figure, #capacity_distribute_contnet .highcharts-data-table table {
+    min-width: 500px; 
+    max-width: 500px;
+    margin: 1em auto;
+}
+
+#capacity_distribute_contnet .highcharts-subtitle, #capacity_distribute_contnet .highcharts-credits, 
+#capacity_distribute_contnet .highcharts-axis.highcharts-yaxis {
+	display: none;
+}
+
+#capacity_distribute_contnet .highcharts-title>tspan {
+	display: none;
+}
+
+/* 이전 지역별 분포 */
+#region_distribute_contnet {
+}
+
+#region_distribute_contnet .highcharts-root {
+    height: 282px !important;
+}
+
+
+#region_distribute_contnet .highcharts-figure, #region_distribute_contnet .highcharts-data-table table {
+    min-width: 500px; 
+    max-width: 500px;
+    margin: 1em auto;
+}
+
+#region_distribute_contnet .highcharts-credits, 
+#region_distribute_contnet .highcharts-axis.highcharts-yaxis {
+	display: none;
+}
+
+#region_distribute_contnet .highcharts-title>tspan {
+	display: none;
+}
+
+.highcharts-xaxis-labels>text {
+	font-size: 14px !important;
+}
+
+.highcharts-yaxis-labels>text {
+	font-size: 13px !important;
+}
+
+.highcharts-button-box, .highcharts-a11y-proxy-button, .highcharts-button-symbol {
+	display: none !important;
+}

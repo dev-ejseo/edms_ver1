@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 다른 mapper와 중복되지 않는 네임스페이스 기재 -->
+<mapper namespace="pkg_barcode">
+
+	<!-- barcode list -->
+	<select id="get_barcode" resultType="java.util.HashMap">
+		SELECT batt_tb.*, bar_tb.USER_INFO_user_id 
+		FROM ((SELECT * FROM battery_info) AS batt_tb
+		LEFT JOIN (SELECT * FROM barcode_info) AS bar_tb 
+		ON batt_tb.BARCODE_INFO_Barcode = bar_tb.Barcode) 
+		<include refid = "search"></include>
+		ORDER BY seq DESC 
+		LIMIT #{start}, #{end}
+		
+		<!-- 
+		SET @rownum:=0;
+		
+		SELECT  @rownum:=@rownum+1 AS testseq, batt_tb.*, bar_tb.USER_INFO_user_id
+        FROM ((SELECT * FROM battery_info) AS batt_tb 
+        LEFT JOIN (SELECT * FROM barcode_info) AS bar_tb
+        ON batt_tb.BARCODE_INFO_barcode = bar_tb.Barcode)
+		<include refid = "search"></include>
+		ORDER BY testseq DESC 
+		LIMIT #{start}, #{end}
+		 -->
+		 
+	</select>
+
+	<!-- list count -->
+	<select id="listCount" resultType="int">
+		SELECT
+		count(batt_tb.BARCODE_INFO_Barcode) 
+		FROM ((SELECT * FROM battery_info) AS batt_tb
+		LEFT JOIN (SELECT * FROM barcode_info) AS bar_tb
+		ON batt_tb.BARCODE_INFO_Barcode = bar_tb.Barcode)
+		<include refid = "search"></include>
+	</select>
+	
+	<select id="totalCount" resultType="int">
+	    SELECT count(*)
+		FROM user_info
+	</select>
+	
+	<sql id="search">
+	    <choose>
+	         <when test = "search_option == 'all'">
+	             WHERE 1=1
+	         </when>
+	         <otherwise>
+	             WHERE ${search_option} LIKE CONCAT('%', #{search_keyword}, '%')
+	         </otherwise>
+	    </choose>
+	</sql>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 다른 mapper와 중복되지 않는 네임스페이스 기재 -->
+<mapper namespace="pkg_history_log">
+
+	<select id="get_history_log" resultType="java.util.HashMap">
+		SELECT * FROM battery_history
+		<include refid = "search"></include>
+		ORDER BY seq DESC 
+		LIMIT #{start}, #{end}
+	</select>
+	
+	<!-- list count -->
+	<select id="listCount" resultType="int">
+		SELECT COUNT(*) FROM battery_history
+		<include refid = "search"></include>
+	</select>
+	
+	<select id="totalCount" resultType="int">
+		SELECT COUNT(*) FROM battery_history
+	</select>
+	
+	<!-- 최근 바코드 Integer 형태로 가져오기 -->
+	<select id="barcodeNum" resultType="int">
+	    SELECT CAST(Barcode AS UNSIGNED) from barcode_info ORDER BY seq DESC LIMIT 1 
+	</select>
+	
+	<sql id="search">
+	    <choose>
+	         <when test = "search_option == 'all'">
+	             WHERE 1=1
+	         </when>
+	         <otherwise>
+	             WHERE ${search_option} LIKE CONCAT('%', #{search_keyword}, '%')
+	         </otherwise>
+	    </choose>
+	</sql>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
